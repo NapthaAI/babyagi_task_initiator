@@ -27,7 +27,11 @@ inputs:
     <OUTPUT_FORMAT>
     ```json
     {
-        "list": ["task1", "task2", "task3", ...]
+        "list": [
+          {'name': "task1", "description": "task1 description"}, 
+          {'name': "task2", "description": "task2 description"}, 
+          {'name': "task3", "description": "task3 description"}, 
+        ...]
     }
     ```
     </OUTPUT_FORMAT>
