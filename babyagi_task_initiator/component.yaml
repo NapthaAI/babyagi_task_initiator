@@ -5,36 +5,28 @@ description: "A tool in naptha's babyagi."
 license: "MIT"
 
 models:
-  default_model_provider: "ollama"
+  default_model_provider: "openai"
   ollama:
     model: "ollama/gemma"
     max_tokens: 1000
     temperature: 0
     api_base: "http://localhost:11434"
+  openai:
+    model: "openai/gpt-3.5-turbo"
+    max_tokens: 1000
+    temperature: 0
 
 inputs:
   system_message: "You are a helpful AI assistant."
   user_message_template: |
     You are given the following objective: {{objective}}.
-    <INSTRUCTIONS>
-    1. Break down the objective into smaller tasks so that other agents can accomplish the task.
-    2. Think step by step before breaking down the tasks.
-    3. Include all the tasks that are needed to complete the objective.
-    4. Return the list of tasks in JSON format.
-    5. Give me a sentence describing the tasks.
-    </INSTRUCTIONS>
 
-    <OUTPUT_FORMAT>
-    ```json
-    {
-        "list": [
-          {'name': "task1", "description": "task1 description"}, 
-          {'name': "task2", "description": "task2 description"}, 
-          {'name': "task3", "description": "task3 description"}, 
-        ...]
-    }
-    ```
-    </OUTPUT_FORMAT>
+    <INSTRUCTIONS>
+    1. Break down the objective into smaller tasks. So that other agents can accomplish the task.
+    2. You should think step by step before breaking down the tasks.
+    3. Make sure to include all the tasks that are needed to complete the objective.
+    5. Give me a sentence describing the taks. 
+    </INSTRUCTIONS>
 
 outputs:
   save: false
